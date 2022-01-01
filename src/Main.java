@@ -10,7 +10,7 @@ public class Main {
 		System.out.println(graph2.isConnected());
 		
 		GraphHash graph3 = GraphHash.load("graph1.dat");
-		System.out.println(graph3.isConnected);
+		System.out.println(graph3.isConnected());
 		
 	}
 
