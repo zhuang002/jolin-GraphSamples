@@ -1,7 +1,8 @@
+import java.io.FileNotFoundException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Graph2DArray graph1 = Graph2DArray.load("graph1.dat");
 		System.out.println(graph1.isConnected());
