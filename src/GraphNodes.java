@@ -72,5 +72,57 @@ public class GraphNodes {
 		
 		return retList;
 	}
+
+	public boolean hasRing() {
+		// TODO Auto-generated method stub
+		for (Node node:this.nodes) {
+			node.visited = false;
+		}
+		
+		Node start = nodes.get(0);
+		
+		return checkRing(null, start);
+		
+		
+	}
+
+	private boolean checkRing(Node parent, Node node) {
+		// TODO Auto-generated method stub
+		node.visited = true;
+		
+		List<Node> connectedNodes = getConnectedNodesExceptParent(parent, node);
+		if (connectedNodes == null) return true;
+		
+		for (Node nd: connectedNodes) {
+			boolean hasRing = checkRing(node, nd);
+			if (hasRing) {
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+
+	private List<Node> getConnectedNodesExceptParent(Node parent, Node node) {
+		// TODO Auto-generated method stub
+		List<Node> retNodes = new ArrayList<>();
+		for (Node subNode:node.connected) {
+			if (parent == subNode) continue;
+			if (subNode.visited) return null;
+			retNodes.add(subNode);
+		}
+		
+		return retNodes;
+	}
+
+	public String getMinDistance(int i, int j) {
+		// TODO Auto-generated method stub
+		Node start = this.nodes.get(i);
+		Node target = this.nodes.get(j);
+		
+		
+		return null;
+	}
 	
 }
